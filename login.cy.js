@@ -2,29 +2,28 @@ import { Password } from "@mui/icons-material"
 
 describe("Log in", ()=>{
 
-
 //------For Unsuccessful Log In---------//
 it("Unsuccessfull Log In", ()=>{
 
-  //------Visit page---------//
+//------Visit page---------//
     cy.visit("https://demoqa.com/login")
 
-  //------Enter Wrong User name---------//
+//------Enter Wrong User name---------//
     cy.get('#userName').type("Ayesha Atique")
   
-  //------Wait--------//
+//------Wait--------//
     cy.wait(3000)
 
-  //------Enter wrong Password---------//
+//------Enter wrong Password---------//
    cy.get("#password").type("Ayesha123")
 
-  //------wait---------//
+//------wait---------//
     cy.wait(3000)
 
-  //------Click Log In Button---------//
-  cy.get("#login").click()
+//------Click Log In Button---------//
+    cy.get("#login").click()
 
-  //------Verify error message that invalid username os password--------//
+//------Verify error message that invalid username os password--------//
     cy.get('#name').should("be.visible")
     cy.wait(5000)
 
@@ -34,26 +33,23 @@ it("Unsuccessfull Log In", ()=>{
 //------For Successful Log In---------//
 it("Successful log in", ()=>{
 
-  //------Visit page---------//
+//------Visit page---------//
   cy.visit("https://demoqa.com/login")
 
-  //------Enter correct User name---------//
+//------Enter correct User name---------//
   cy.get('#userName').type("AyeshaTester")
   cy.wait(3000)
 
-  //------Enter correct Password---------//
- 
-  cy.get("#password").type("Tester1234!@#$")
-  cy.wait(3000)
+//------Enter correct Password---------//
+   cy.get("#password").type("Tester1234!@#$")
+   cy.wait(3000)
 
-  //------Click Log In Button---------//
+//------Click Log In Button---------//
   cy.get("#login").click()
   cy.wait(8000)
 
-  //--------Verify that user is on Profile page----//
+//--------Verify that user is on Profile page----//
   cy.url().should('eq', "https://demoqa.com/profile")
 
-
 })
-
 })
